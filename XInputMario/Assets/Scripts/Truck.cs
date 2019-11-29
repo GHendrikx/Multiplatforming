@@ -6,7 +6,7 @@ public class Truck : MonoBehaviour
 {
     [SerializeField]
     private float force;
-    private AudioClip clip;
+    public AudioClip clip;
     private AudioSource aSource;
     private void Start()
     {

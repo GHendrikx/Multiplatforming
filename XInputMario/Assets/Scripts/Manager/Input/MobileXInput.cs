@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MobileXInput : XInput
 {
-    public override event Jump jump;
     public override event HorizontalMovement horizontalMovement;
     public override event VerticalMovement verticalMovement;
     public override event PlayerAction action;
@@ -13,15 +12,29 @@ public class MobileXInput : XInput
     public override void Start()
     {
         //setting up Input
-        jump += player.Jump;
         horizontalMovement += player.HorizontalMove;
-        horizontalMovement += player.HorizontalMove;
+        verticalMovement += player.Jump;
         action += player.Action;
+        Screen.orientation = ScreenOrientation.Landscape;
     }
 
     public override void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-            jump?.Invoke(player.JumpForce);
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            Vector2 position = touch.position;
+
+            if (position.x > (Screen.width * 0.75f))
+                horizontalMovement(10);
+            else if (position.x < (Screen.width * 0.25f))
+                horizontalMovement(-10);
+            else
+            {
+                //do action of jump
+            }
+
+        }
     }
 }

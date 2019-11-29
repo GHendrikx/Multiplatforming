@@ -9,7 +9,6 @@ public abstract class XInput : MonoBehaviour, InputListeners
 {
     public abstract event HorizontalMovement horizontalMovement;
     public abstract event VerticalMovement verticalMovement;
-    public abstract event Jump jump;
     public abstract event PlayerAction action;
 
     public Player player;
