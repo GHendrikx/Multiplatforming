@@ -26,20 +26,14 @@ public class MobileXInput : XInput
         {
             Touch touch = Input.GetTouch(0);
 
-            Vector2 position = touch.position;
+            Vector2 touchPosition = touch.position;
 
-            if (position.x > (Screen.width * 0.75f))
-                horizontalMovement(10);
-
-            else if (position.x < (Screen.width * 0.25f))
-                horizontalMovement(-10);
-            
+            if (touchPosition.x > (Screen.width * 0.75))
+                horizontalMovement(1);
+            else if(touchPosition.x < (Screen.width * 0.25))
+                horizontalMovement(-1);
             else
-            {
                 action();
-                canThrow = false;
-                TimerManager.Instance.AddTimer(() => { canThrow = !canThrow; }, 5);
-            }
         }
-    }
+    } 
 }
