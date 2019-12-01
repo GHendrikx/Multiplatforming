@@ -7,7 +7,7 @@ public class PCXInput : XInput
     public override event HorizontalMovement horizontalMovement;
     public override event PlayerAction action;
 
-    public PCXInput(Player player) :base(player)
+    public PCXInput(Player player) : base(player)
     {
 
     }

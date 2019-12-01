@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public float JumpForce;
     private int speed;
     [SerializeField]
-    [Range(0,25)]
+    [Range(0,30)]
     private int yOffset;
     [SerializeField]
     [Range(0,40)]
@@ -19,11 +19,6 @@ public class Player : MonoBehaviour
 
     private void Start() =>
         rotater = transform.eulerAngles.y;
-
-    /*private void Update() =>
-        transform.Rotate(new Vector3(transform.rotation.eulerAngles.x,
-            (transform.rotation.eulerAngles.y + 2) % 360,
-            transform.rotation.eulerAngles.z));*/
 
     public void HorizontalMove(float Vector) 
     { 

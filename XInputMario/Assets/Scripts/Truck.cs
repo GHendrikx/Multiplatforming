@@ -11,13 +11,14 @@ public class Truck : MonoBehaviour
     private AudioSource aSource;
     public ParticleSystem explosion;
     public bool IWillBeBack;
+
     public Rigidbody RB
     {
         get;
         private set;
     }
 
-    private void Start()
+    private void Awake()
     {
         aSource = Camera.main.GetComponent<AudioSource>();
         aSource.clip = clip;
@@ -27,15 +28,15 @@ public class Truck : MonoBehaviour
     private void OnEnable()
     {
         if (RB == null)
-            Start();
+            Awake();
 
         AddForce();
     }
 
     private void AddForce()
     {
-        RB.AddForce(new Vector3(0, force*0.05f, force));
         PlaySoundClip();
+        RB.AddForce(new Vector3(0, force*0.05f, force));
     }
 
     private void PlaySoundClip()
@@ -46,9 +47,15 @@ public class Truck : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //PlayExplosion add an awesome EXPLOSION PARTICLE EFFECT to the game
+
+        Pool.Instance.ReturnChild();
+
+        explosion.transform.position = collision.transform.position;
         explosion.gameObject.SetActive(true);
         explosion.Play();
+
+        TimerManager.Instance.AddTimer(() => { explosion.gameObject.SetActive(!explosion.gameObject.activeInHierarchy); }, 2);
+
         IWillBeBack = true;
-        TimerManager.Instance.AddTimer(Pool.Instance.ReturnChild, 5);
     }
 }
