@@ -6,6 +6,9 @@ public class GameManager : Singleton<GameManager>
 {
     private InputManager inputManager;
 
+    [SerializeField]
+    private Player player;
+
     public void Start()
     {
         SetInputDevice();
@@ -18,12 +21,11 @@ public class GameManager : Singleton<GameManager>
     public void SetInputDevice()
     {
     #if UNITY_ANDROID
-        inputManager = new InputManager(new MobileXInput());
+        inputManager = new InputManager(new MobileXInput(player));
     #endif //UNITY_ANDROID
 
     #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-        inputManager = new InputManager(new PCXInput());
+        inputManager = new InputManager(new PCXInput(player));
     #endif //UNITY_EDITOR_WINDOWS || UNITY_STANDALONE_WINDOWS
     }
-
 }

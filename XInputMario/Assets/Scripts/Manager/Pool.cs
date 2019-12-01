@@ -22,9 +22,14 @@ public class Pool : Singleton<Pool>
         {
             if (childList[i].IWillBeBack)
             {
-                childList[i].IWillBeBack = false;
-                childList[i].transform.position = Vector3.zero;
-                childList[i].gameObject.SetActive(false);
+                Truck truck = childList[i];
+                truck.RB.velocity = Vector3.zero;
+                truck.RB.angularVelocity = Vector3.zero;
+                truck.IWillBeBack = false;
+                truck.transform.position = Vector3.zero;
+                truck.explosion.gameObject.SetActive(false);
+                truck.gameObject.SetActive(false);
+                truck.transform.rotation = Quaternion.identity;
             }
         }
     }

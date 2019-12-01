@@ -5,8 +5,12 @@ using UnityEngine;
 public class PCXInput : XInput
 {
     public override event HorizontalMovement horizontalMovement;
-    public override event VerticalMovement verticalMovement;
     public override event PlayerAction action;
+
+    public PCXInput(Player player) :base(player)
+    {
+
+    }
     
     // Start is called before the first frame update
     public override void Start()
@@ -19,12 +23,11 @@ public class PCXInput : XInput
     public override void Update()
     {
         if(Input.GetKey(KeyCode.D))
-        {
+            horizontalMovement(1);
+        else if(Input.GetKey(KeyCode.A))
+            horizontalMovement(-1);
 
-        }
-        if(Input.GetKey(KeyCode.A))
-        {
-
-        }
+        if (Input.GetKeyUp(KeyCode.Space))
+            action();
     }
 }

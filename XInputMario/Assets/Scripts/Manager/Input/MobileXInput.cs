@@ -6,9 +6,12 @@ using UnityEngine.Timers;
 public class MobileXInput : XInput
 {
     public override event HorizontalMovement horizontalMovement;
-    public override event VerticalMovement verticalMovement;
     public override event PlayerAction action;
-    private bool canThrow;
+
+    public MobileXInput(Player player) : base(player)
+    {
+
+    }
 
     // Start is called before the first frame update
     public override void Start()
@@ -16,7 +19,6 @@ public class MobileXInput : XInput
         //setting up Input
         horizontalMovement += player.HorizontalMove;
         action += player.Action;
-        canThrow = true;
         Screen.orientation = ScreenOrientation.Landscape;
     }
 
