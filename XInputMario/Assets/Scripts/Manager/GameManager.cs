@@ -17,11 +17,11 @@ public class GameManager : Singleton<GameManager>
 
     public void SetInputDevice()
     {
-#if UNITY_ANDROID
+    #if UNITY_ANDROID
         inputManager = new InputManager(new MobileXInput());
-#endif //UNITY_ANDROID
+    #endif //UNITY_ANDROID
 
-#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+    #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
         inputManager = new InputManager(new PCXInput());
     #endif //UNITY_EDITOR_WINDOWS || UNITY_STANDALONE_WINDOWS
     }

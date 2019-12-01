@@ -6,6 +6,7 @@ public class PlayerCamera : MonoBehaviour
 {
     [SerializeField]
     private Player player;
+    [Range(0,10)]
     [SerializeField]
     private float distance;
 

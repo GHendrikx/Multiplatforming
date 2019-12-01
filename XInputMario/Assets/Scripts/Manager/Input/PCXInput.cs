@@ -12,11 +12,19 @@ public class PCXInput : XInput
     public override void Start()
     {
         //setting up Input
-        horizontalMovement += player.HorizontalMove;
-        action += player.Action;
+        horizontalMovement = player.HorizontalMove;
+        action = player.Action;
     }
 
     public override void Update()
     {
+        if(Input.GetKey(KeyCode.D))
+        {
+
+        }
+        if(Input.GetKey(KeyCode.A))
+        {
+
+        }
     }
 }
