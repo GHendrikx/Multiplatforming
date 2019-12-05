@@ -8,17 +8,13 @@ public class Player : MonoBehaviour
     public float JumpForce;
     private int speed;
     [SerializeField]
-    [Range(0,30)]
+    [Range(0,45)]
     private int yOffset;
     [SerializeField]
     [Range(0,40)]
     private int zOffset;
-    private int y;
-    private float rotater;
     private bool canThrow = true;
 
-    private void Start() =>
-        rotater = transform.eulerAngles.y;
 
     public void HorizontalMove(float Vector) 
     { 
