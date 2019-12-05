@@ -9,6 +9,7 @@ public class PCXInput : XInput
 
     public PCXInput(Player player) : base(player)
     {
+        //can specify a specific controller
 
     }
     
@@ -22,11 +23,10 @@ public class PCXInput : XInput
 
     public override void Update()
     {
-        if(Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.RightArrow))
             horizontalMovement(1);
-        else if(Input.GetKey(KeyCode.A))
+        else if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             horizontalMovement(-1);
-
         if (Input.GetKeyUp(KeyCode.Space))
             action();
     }

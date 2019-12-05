@@ -6,7 +6,8 @@ using UnityEngine.Timers;
 public class Player : MonoBehaviour
 {
     public float JumpForce;
-    private int speed;
+    [SerializeField]
+    private float speed;
     [SerializeField]
     [Range(0,45)]
     private int yOffset;
@@ -14,13 +15,20 @@ public class Player : MonoBehaviour
     [Range(0,40)]
     private int zOffset;
     private bool canThrow = true;
+    [SerializeField]
+    private Rigidbody myRb;
 
-
-    public void HorizontalMove(float Vector) 
-    { 
+    private void OnBecameInvisible()
+    {
         
     }
-    public void Jump(float force) { }
+
+    public void HorizontalMove(float steer) 
+    {
+        Vector3 movement;
+        movement = new Vector3(myRb.position.x + steer, transform.localPosition.y,transform.localPosition.z);
+        myRb.MovePosition(this.transform.localPosition + movement * speed * Time.deltaTime);
+    }
     public void Action() 
     {
         if (canThrow)
