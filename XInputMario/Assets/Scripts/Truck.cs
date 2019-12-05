@@ -20,7 +20,7 @@ public class Truck : MonoBehaviour
 
     private void Awake()
     {
-        aSource = Camera.main.GetComponent<AudioSource>();
+        aSource = GetComponent<AudioSource>();
         aSource.clip = clip;
         RB = GetComponent<Rigidbody>();
     }
@@ -47,7 +47,6 @@ public class Truck : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //PlayExplosion add an awesome EXPLOSION PARTICLE EFFECT to the game
-
         Pool.Instance.ReturnChild();
 
         explosion.transform.position = collision.transform.position;

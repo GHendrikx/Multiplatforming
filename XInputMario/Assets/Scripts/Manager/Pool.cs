@@ -23,10 +23,12 @@ public class Pool : Singleton<Pool>
             if (childList[i].IWillBeBack)
             {
                 Truck truck = childList[i];
+                truck.transform.parent = this.transform;
                 truck.RB.velocity = Vector3.zero;
                 truck.RB.angularVelocity = Vector3.zero;
-                truck.IWillBeBack = false;
                 truck.transform.position = Vector3.zero;
+
+                truck.IWillBeBack = false;
                 truck.explosion.gameObject.SetActive(false);
                 truck.gameObject.SetActive(false);
                 truck.transform.rotation = Quaternion.identity;
