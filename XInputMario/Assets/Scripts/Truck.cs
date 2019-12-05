@@ -48,6 +48,9 @@ public class Truck : MonoBehaviour
     {
         //PlayExplosion add an awesome EXPLOSION PARTICLE EFFECT to the game
 
+        if(collision.gameObject.tag == "Obstacle")
+            Destroy(collision.gameObject);
+
         Pool.Instance.ReturnChild();
 
         explosion.transform.position = collision.transform.position;
