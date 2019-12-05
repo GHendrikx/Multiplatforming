@@ -50,7 +50,7 @@ public class Truck : MonoBehaviour
         Pool.Instance.ReturnChild();
 
         if (collision.gameObject.tag == "Obstacle")
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Reset>().PositionReset();
 
         explosion.transform.position = collision.transform.position;
         explosion.gameObject.SetActive(true);

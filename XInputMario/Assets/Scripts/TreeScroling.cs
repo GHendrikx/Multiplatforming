@@ -13,12 +13,13 @@ public class TreeScroling : MonoBehaviour
         trees = new List<Transform>();
 
         for (int i = 0; i < this.transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.AddComponent<Reset>();
             trees.Add(transform.GetChild(i).transform);
+        }
 
-        Debug.Log(trees.Count);
     }
 
-    // Update is called once per frame
     void Update()
     {
         for (int i = 0; i < trees.Count; i++)
