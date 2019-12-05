@@ -18,17 +18,16 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Rigidbody myRb;
 
-    private void OnBecameInvisible()
-    {
-        
-    }
-
     public void HorizontalMove(float steer) 
     {
         Vector3 movement;
-        movement = new Vector3(myRb.position.x + steer, transform.localPosition.y,transform.localPosition.z);
-        myRb.MovePosition(this.transform.localPosition + movement * speed * Time.deltaTime);
+        Debug.Log("Steer : " + steer);
+        movement = new Vector3(myRb.position.x + steer, transform.localPosition.y, transform.localPosition.z);
+        Debug.Log("movement.x : " + movement.x);
+        transform.position = movement;
+        //myRb.MovePosition( movement * speed * Time.deltaTime);
     }
+
     public void Action() 
     {
         if (canThrow)

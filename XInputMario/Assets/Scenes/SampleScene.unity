@@ -2382,7 +2382,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  treeScript: {fileID: 0}
 --- !u!4 &323889506
 Transform:
   m_ObjectHideFlags: 0
