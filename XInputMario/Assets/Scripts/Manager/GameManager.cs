@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -11,6 +12,7 @@ public class GameManager : Singleton<GameManager>
 
     public void Start()
     {
+        if(SceneManager.GetActiveScene().buildIndex != 0)
         SetInputDevice();
         inputManager.Start();
     }
