@@ -30,6 +30,6 @@ public class Obstacle : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
-            collision.gameObject.GetComponent<Reset>().PositionReset();
+            collision.gameObject.GetComponent<SceneSwitch>().SwitchScene(0);
     }
 }
