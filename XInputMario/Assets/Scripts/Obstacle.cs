@@ -26,4 +26,10 @@ public class Obstacle : MonoBehaviour
             obstacles[i].position = new Vector3(obstacles[i].transform.position.x, obstacles[i].transform.position.y, obstacles[i].transform.position.z - (speed * Time.deltaTime));
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+            collision.gameObject.GetComponent<Reset>().PositionReset();
+    }
 }
