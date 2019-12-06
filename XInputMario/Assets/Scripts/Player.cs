@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     public float JumpForce;
     [SerializeField]
+    [Range(0,10)]
     private float speed;
     [SerializeField]
     [Range(0,45)]
@@ -17,14 +18,16 @@ public class Player : MonoBehaviour
     private bool canThrow = true;
     [SerializeField]
     private Rigidbody myRb;
+    [SerializeField]
+
 
     public void HorizontalMove(float steer) 
     {
         Vector3 movement;
         Debug.Log("Steer : " + steer);
-        movement = new Vector3(myRb.position.x + steer, transform.localPosition.y, transform.localPosition.z);
+        movement = new Vector3(myRb.position.x + (steer * speed), transform.localPosition.y, transform.localPosition.z);
         Debug.Log("movement.x : " + movement.x);
-        transform.position = movement;
+        myRb.MovePosition(movement);
         //myRb.MovePosition( movement * speed * Time.deltaTime);
     }
 
