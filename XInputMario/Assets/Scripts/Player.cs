@@ -23,12 +23,9 @@ public class Player : MonoBehaviour
 
     public void HorizontalMove(float steer) 
     {
-        Vector3 movement;
-        Debug.Log("Steer : " + steer);
-        movement = new Vector3(myRb.position.x + (steer * speed), transform.localPosition.y, transform.localPosition.z);
-        Debug.Log("movement.x : " + movement.x);
-        myRb.MovePosition(movement);
-        //myRb.MovePosition( movement * speed * Time.deltaTime);
+        Vector3 movementVector;
+        movementVector = new Vector3(myRb.position.x + (steer * speed), transform.localPosition.y, transform.localPosition.z);
+        myRb.MovePosition(movementVector);
     }
 
     public void Action() 

@@ -4,7 +4,6 @@
 public class InputManager
 {
     private XInput xInput;
-
     public InputManager(XInput xInput) =>
         this.xInput = xInput;
     // Start is called before the first frame update
