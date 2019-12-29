@@ -18,7 +18,8 @@ public class ScrollingTexture : MonoBehaviour
         if (!StopTexture)
         {
             float offsetZ = Time.time * scrollZ;
-            renderer.material.mainTextureOffset = new Vector2(renderer.material.mainTextureOffset.x, -offsetZ);
+            renderer.material.mainTextureOffset = new Vector2(
+                renderer.material.mainTextureOffset.x, -offsetZ);
         }
      }
 }

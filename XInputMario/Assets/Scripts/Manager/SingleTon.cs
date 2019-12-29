@@ -8,7 +8,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         private set;
     }
 
-
+    
     /// <summary>
     /// Checks if the instance exists and creates a new one when there is none.
     /// </summary>

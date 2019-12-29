@@ -12,8 +12,8 @@ public class GameManager : Singleton<GameManager>
 
     public void Start()
     {
-        if(SceneManager.GetActiveScene().buildIndex != 0)
-        SetInputDevice();
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+            SetInputDevice();
         inputManager.Start();
     }
 
@@ -22,12 +22,12 @@ public class GameManager : Singleton<GameManager>
 
     public void SetInputDevice()
     {
-    #if UNITY_ANDROID
+#if UNITY_ANDROID
         inputManager = new InputManager(new MobileXInput(player));
-    #endif //UNITY_ANDROID
+#endif //UNITY_ANDROID
 
-    #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
         inputManager = new InputManager(new PCXInput(player));
-    #endif //UNITY_EDITOR_WINDOWS || UNITY_STANDALONE_WINDOWS
+#endif //UNITY_EDITOR_WINDOWS || UNITY_STANDALONE_WINDOWS
     }
 }
